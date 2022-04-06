@@ -25,8 +25,15 @@
 
 .first-container{
   width: 800px;
-  margin: 100px auto;
+  padding-top: 100px;
+  margin: 0 auto;
 }
+.wrapper{
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+ 
 
 .header {
   width: 642px;

@@ -7,16 +7,18 @@ function FirstPage() {
   return (
     <div className="first">
       <div className="first-container">
-        <h1 className="header">Mathematics Game</h1>
-        <FirstUndeline className="underline"/>
-        <p className='first-parag'>Total Point : <span>129</span></p>
-        <p className='first-parag'>Total Questions : <span>40</span></p>
-        <p className='first-parag'>Correct Answers : <span>32</span></p>
-        <div>
+        <div className="wrapper">
+          <p className="header">Mathematics Game</p>
+          <FirstUndeline className="underline"/>
+          <p className='first-parag'>Total Point : <span>129</span></p>
+          <p className='first-parag'>Total Questions : <span>40</span></p>
+          <p className='first-parag'>Correct Answers : <span>32</span></p>
+          <div>
 
-          <Link to="/game" className='first-link'>
-            <Start  /> <span className='start'>Start</span>
-          </Link>
+            <Link to="/game" className='first-link'>
+              <Start  /> <span className='start'>Start</span>
+            </Link>
+          </div>
         </div>
         
       </div>
