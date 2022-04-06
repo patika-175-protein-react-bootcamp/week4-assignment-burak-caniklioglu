@@ -1,15 +1,13 @@
-import React, {useEffect}  from 'react';
+import React  from 'react';
 import SmallCircle from '../constants/icons/GamePage/SmallCircle';
 import Student from '../constants/icons/GamePage/Student';
-import { useNavigate } from 'react-router-dom';
+
 import { useGame } from '../contexts/context';
 import '../App.css';
 
 function GamePage() {
   const {tour,
     setTour,
-    correct, 
-    setCorrect,
     step,
     setStep,
     score,
@@ -17,118 +15,54 @@ function GamePage() {
     question,
     setQuestion,
     questions,
-    setQuestions,firstNumber,setFirstNumber,secondNumber,setSecondNumber} = useGame()
+    correct,
+    setCorrect,
+    setQuestions,
+    allQuestions,
+    setAllQuestions} = useGame()
   
-  const navigate = useNavigate();
-  
-  
-  
-  
-  const resultTrue = firstNumber * secondNumber;
-  const resultTwo = firstNumber * (secondNumber === 1 ? secondNumber+1 : secondNumber - 1);
-  const resultThree = (firstNumber+1) * secondNumber;
+//  console.log(allQuestions);
 
   const handleClick = (e) => {
-    const checkedAnswer = e.currentTarget.innerText;
-    
-    
-    if(resultTrue === Number(checkedAnswer)) {
-      setCorrect('correct');
 
-      setQuestions([...questions, { firstnumber: firstNumber, secondnumber: secondNumber, result: resultTrue, isCorrect: true}]);
+    if(Number(e.currentTarget.innerText) === questions.resultTrue){
+      questions.isCorrect = true;
+      
+      
+      
 
-      if(Number.isInteger(Math.sqrt(resultTrue))){
-        setScore(Number(score) + Math.floor(Math.sqrt(resultTrue)));
-      }else{
-        setScore(Number(score) + Math.floor(Math.sqrt(resultTrue))+1);
-      }
-
-      
-      
-      setTimeout(() => setCorrect('game') , 3000);
-      setTimeout(() => setFirstNumber(Math.ceil(Math.random() * 9)) , 3000);
-      setTimeout(() => setSecondNumber(Math.ceil(Math.random() * 9)) , 3000);
-      
-      
-      
-      
-      
-    }else{
-      setQuestions([...questions, { firstnumber: firstNumber, secondnumber: secondNumber, result: resultTrue, isCorrect: false}]);
-      
-      setCorrect('uncorrect');
-      setTimeout(() => setCorrect('game') , 3000);
-      setTimeout(() => setFirstNumber(Math.ceil(Math.random() * 9)) , 3000);
-      setTimeout(() => setSecondNumber(Math.ceil(Math.random() * 9)) , 3000);
-      
-      
+      setTimeout(() => {
+        if(Number.isInteger(Math.sqrt(questions.resultTrue))){
+          setScore(Number(score) + Math.floor(Math.sqrt(questions.resultTrue)));
+        }else{
+          setScore(Number(score) + Math.floor(Math.sqrt(questions.resultTrue))+1);
+        }
+        
+      },3000)
     }
 
-    setStep(x=>x+1);
-  };
+    const checkedAnswer = Number(e.currentTarget.innerText) === questions.resultTrue ? "correct" : "uncorrect";
+    
 
-  
- 
+    setAllQuestions([...allQuestions,questions])
 
-  function shuffle(array) {
-    let currentIndex = array.length,  randomIndex;
-  
-    // While there remain elements to shuffle...
-    while (currentIndex != 0) {
-  
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-  
-      // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex], array[currentIndex]];
-    }
-  
-    return array;
+    setCorrect(checkedAnswer);
+    /* Soruyla ilgili işlemler 3 saniye geçmeden önce burada yapılacak. */
+    setTimeout(()=>{
+      setStep((prevStep) => prevStep + 1);
+    },3000)
   }
-
   
   
-  const list = [resultTrue, resultTwo, resultThree];
-  
-  shuffle(list);
-  
-  
-  useEffect(() => {
-    
-  
-    if(step > question){
-      localStorage.setItem("score", score);
-      
-      setStep(1);
-      setTour(x=>x+1);
-      navigate("/result", { replace: true });
-    }else{
-      sessionStorage.setItem('score', score);
-    }
-  }, [step])
-  
-  useEffect(() => {
-    let getLocalScore = localStorage.getItem('score');
-    setScore(getLocalScore || 0);
-  },[tour])
-
-  
-
-
-
-
-
   return (
     <div className={correct}>
       <div className='game-container'>
         <div className='left-game'>
           <Student/> 
           <div className="conc">
-            <span>{firstNumber}</span>
+            <span>{questions.firstNumber}</span>
             <span>X</span>
-            <span>{secondNumber}</span>
+            <span>{questions.secondNumber}</span>
           </div>
         </div>
         <div className='right-game'>
@@ -138,14 +72,12 @@ function GamePage() {
             <p className="game-score">Questions: <span>{step}</span><span>/</span><span>{question}</span></p>
           </div>
           <div className="circles">
-            <div id="circle-1" onClick={(e) => handleClick(e) }><SmallCircle /> <span>{list[0]}</span> </div>
-            <div id="circle-2" onClick={(e) => handleClick(e) }><SmallCircle /><span>{list[1]}</span>  </div>
-            <div id="circle-3" onClick={(e) => handleClick(e) }><SmallCircle />
-              <span>{list[2]}</span></div>
-            
-            
+            {questions?.answers?.map((item, index) => (
+              <div className={`circle-${index}`} key = {index}onClick={(e) => handleClick(e) }>
+                <SmallCircle  text={item}  ></SmallCircle>
+              </div>
+            ))}
           </div>
-          
         </div>
       </div> 
     </div>

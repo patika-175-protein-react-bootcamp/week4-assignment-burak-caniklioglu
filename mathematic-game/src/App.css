@@ -105,26 +105,27 @@
 
 .circles{
   font-size: 5.5rem;
+  cursor: pointer;
 }
 
-#circle-1{
+.circle-0{
   position: absolute;
   top: 319px;
   right: 540px;
 
 }
-#circle-1 span, #circle-2 span, #circle-3 span{
+.circle-1 span, .circle-2 span, .circle-0 span{
   position: absolute;
   right: 40px;
   top: 30px;
 }
-#circle-2{
+.circle-1{
   position: absolute;
   top: 452px;
   right: 180px;
 
 }
-#circle-3{
+.circle-2{
   position: absolute;
   top: 611px;
   right: 461px;
