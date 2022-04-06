@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Handlee", cursive;
+  color: white;
+}
+
+.first,.game,.result {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: #2d2d2d;
+}
+
+.correct{
+  background-color: green;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+.uncorrect{
+  background-color: red;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.first-container{
+  width: 800px;
+  margin: 100px auto;
+}
+
+.header {
+  width: 642px;
+  height: 109px;
+
+  font-family: "Handlee";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 82px;
+  line-height: 109px;
+
+  color: #ff0000;
+}
+
+.underline {
+  
+  width: 640px;
+  height: 10px;
+}
+
+.first-parag{
+  font-size: 4rem;
+  margin-bottom: 47px;
+}
+
+.first-link{
+  position: relative;
+}
+
+.start{
+  position: absolute;
+  font-size: 4rem;
+  right: 130px;
+  top: -100px;
+}
+
+
+/**/
+
+.game-container{
+  display: flex;
+  flex-direction: row;
+  padding-top: 98px;
+  justify-content: space-around;
+}
+
+.left-game{
+  font-size: 8rem;
+}
+
+.conc {
+  position: absolute;
+  top: 321px;
+  left: 229px;
+
+}
+.score-container{
+  display: flex;
+  flex-direction: row;
+  margin: 10px auto 100px auto;
+  
+
+}
+
+.game-score{
+  padding-right: 20px;
+  font-size: 4rem;
+}
+
+.circles{
+  font-size: 5.5rem;
+}
+
+#circle-1{
+  position: absolute;
+  top: 319px;
+  right: 540px;
+
+}
+#circle-1 span, #circle-2 span, #circle-3 span{
+  position: absolute;
+  right: 40px;
+  top: 30px;
+}
+#circle-2{
+  position: absolute;
+  top: 452px;
+  right: 180px;
+
+}
+#circle-3{
+  position: absolute;
+  top: 611px;
+  right: 461px;
+
+}
+
+.result-container{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 4rem 15rem 0 15rem;
+  text-align: center;
+}
+
+.symbol{
+  
+  padding-left: 3rem;
+}
+.question span{
+  font-size: 3.5rem;
+  padding-right: 0.5rem;
+}
+
+  
