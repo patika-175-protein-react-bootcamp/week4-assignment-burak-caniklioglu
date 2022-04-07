@@ -5,14 +5,19 @@ import { Link } from 'react-router-dom';
 import Start from '../constants/icons/FirstPage/start';
 import Tik from '../constants/icons/ResulPage/Tik';
 import Wrong from '../constants/icons/ResulPage/Wrong';
+import { useGame } from '../contexts/context';
 
 
 
 function ResultPage() {
 
-  
+  const {
+    allQuestions,
+    score,point,question,perCorrect
 
+    }= useGame()
 
+    console.log(allQuestions)
 
   return (
     <div className='result'>
@@ -20,9 +25,9 @@ function ResultPage() {
         <div className="final">
           <h1 className="header">Final</h1>
           <FirstUndeline className="underline" size={228}/>
-          <p className="first-parag">Point: <span>129</span></p>
-          <p className="first-parag">Questions: <span>129</span></p>
-          <p className="first-parag">Correct Answers: <span>129</span></p>
+          <p className="first-parag">Point: <span>{point}</span></p>
+          <p className="first-parag">Questions: <span>{question}</span></p>
+          <p className="first-parag">Correct Answers: <span>{perCorrect.length}</span></p>
           <Link title="Start" to={'/game'} className="first-link"><Start/><span className="start">Restart</span> </Link>
         </div>
 

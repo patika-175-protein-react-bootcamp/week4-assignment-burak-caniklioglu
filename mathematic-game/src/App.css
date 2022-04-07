@@ -103,8 +103,9 @@
   font-size: 4rem;
 }
 
-.circles{
-  font-size: 5.5rem;
+.circle{
+  border: none;
+  background-color: transparent;
   cursor: pointer;
 }
 
@@ -114,10 +115,11 @@
   right: 540px;
 
 }
-.circle-1 span, .circle-2 span, .circle-0 span{
+.circle span{
   position: absolute;
   right: 40px;
   top: 30px;
+  font-size: 5.5rem;
 }
 .circle-1{
   position: absolute;

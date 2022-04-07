@@ -7,38 +7,44 @@ import '../App.css';
 
 function GamePage() {
   const {tour,
-    setTour,
     step,
     setStep,
     score,
     setScore,
     question,
-    setQuestion,
     questions,
     correct,
     setCorrect,
-    setQuestions,
     allQuestions,
-    setAllQuestions} = useGame()
+    setPoint,
+    clicked,
+    setClicked,
+    setAllQuestions,
+    tempCorrect,
+    setTempCorrect} = useGame()
   
-//  console.log(allQuestions);
+    console.log(allQuestions);
 
-  const handleClick = (e) => {
 
+  const handleClick = (e,item) => {
+    
+    item.active = true
+    console.log(item);
+    setClicked(true);
     if(Number(e.currentTarget.innerText) === questions.resultTrue){
       questions.isCorrect = true;
+      setTempCorrect([...tempCorrect,questions])
       
-      
-      
-
       setTimeout(() => {
         if(Number.isInteger(Math.sqrt(questions.resultTrue))){
           setScore(Number(score) + Math.floor(Math.sqrt(questions.resultTrue)));
+          setPoint(Number(score) + Math.floor(Math.sqrt(questions.resultTrue)));
         }else{
           setScore(Number(score) + Math.floor(Math.sqrt(questions.resultTrue))+1);
+          setPoint(Number(score) + Math.floor(Math.sqrt(questions.resultTrue))+1);
         }
         
-      },3000)
+      },1000)
     }
 
     const checkedAnswer = Number(e.currentTarget.innerText) === questions.resultTrue ? "correct" : "uncorrect";
@@ -50,7 +56,7 @@ function GamePage() {
     /* Soruyla ilgili işlemler 3 saniye geçmeden önce burada yapılacak. */
     setTimeout(()=>{
       setStep((prevStep) => prevStep + 1);
-    },3000)
+    },1000)
   }
   
   
@@ -73,9 +79,10 @@ function GamePage() {
           </div>
           <div className="circles">
             {questions?.answers?.map((item, index) => (
-              <div className={`circle-${index}`} key = {index}onClick={(e) => handleClick(e) }>
-                <SmallCircle  text={item}  ></SmallCircle>
-              </div>
+              <button className={`circle circle-${index}`} key = {index}onClick={(e) => handleClick(e,item) }>
+                <SmallCircle item={item} clicked={clicked} questions={questions} />
+                
+              </button>
             ))}
           </div>
         </div>
