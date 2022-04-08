@@ -38,8 +38,8 @@ function GamePage() {
     setClicked(true);
     if(Number(e.currentTarget.innerText) === questions.resultTrue){
       questions.isCorrect = true;
-      setTempCorrect([...tempCorrect,questions])
       
+      setTempCorrect([...tempCorrect,questions])
       setTimeout(() => {
         if(Number.isInteger(Math.sqrt(questions.resultTrue))){
           setScore(Number(score) + Math.floor(Math.sqrt(questions.resultTrue)));
@@ -55,7 +55,7 @@ function GamePage() {
     const checkedAnswer = Number(e.currentTarget.innerText) === questions.resultTrue ? "correct" : "uncorrect";
     
 
-    setAllQuestions([...allQuestions,questions])
+    
 
     setCorrect(checkedAnswer);
     
@@ -80,7 +80,7 @@ function GamePage() {
           <div className='score-container'>
             <p className="game-score">Score: <span>{score}</span></p>
             <p className="game-score">Tour: <span>{tour}</span></p>
-            <p className="game-score">Questions: <span>{step}</span><span>/</span><span>{question}</span></p>
+            <p className="game-score">Questions: <span>{tempCorrect.length}</span><span>/</span><span>{allQuestions.length+1}</span></p>
           </div>
           <div className="circles">
             {questions?.answers?.map((item, index) => (

@@ -68,32 +68,54 @@
 
 /**/
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .game-container{
   display: flex;
-  flex-direction: row;
   padding-top: 63px;
-  justify-content: center;
 }
 
 .left-game{
+  margin-left: 183px;
  padding-top: 27px;
 }
+
 
 .conc {
   position: absolute;
   top: 321px;
-  left: 229px;
+  left: 279px;
   font-size: 8rem;
 }
 .score-container{
+  position: absolute;
+  margin-left: 20px;
+
   display: flex;
-  flex-direction: row;
-  font-size: 3rem;
+  
   
 }
 
 .game-score{
-  margin-right: 65px;
+  margin-right: 125px;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 64px;
 }
 
 .circle{
@@ -105,7 +127,20 @@
 .circle-0{
   position: absolute;
   top: 319px;
-  left: 1177px;
+  left: 1227px;
+
+}
+.circle-1{
+  position: absolute;
+  top: 452px;
+  left:1617px;
+
+}
+.circle-2{
+  position: absolute;
+  top: 611px;
+  left:1336px;
+  
 
 }
 .circle span{
@@ -114,18 +149,21 @@
   top: 30px;
   font-size: 90px;
 }
-.circle-1{
-  position: absolute;
-  top: 452px;
-  right: 180px;
 
-}
-.circle-2{
-  position: absolute;
-  top: 611px;
-  right: 461px;
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .result-container{
   width: 100%;
@@ -144,10 +182,4 @@
   padding-right: 0.5rem;
 }
 
-@media screen and (min-width:1024px) and (max-width:1919px) {
 
-  .left-game,right-game,.conc,.circle span,.circle{
-      transform: scale(0.53);
-    }
-  
-}

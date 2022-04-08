@@ -79,6 +79,7 @@ const GameProvider = ({children}) => {
       sessionStorage.setItem('point', score);
       sessionStorage.setItem('tempCor', JSON.stringify(tempCorrect));
     }
+    setAllQuestions([...allQuestions,questions])
     const stepQuestion = createQuestion();
     setCorrect("game")
     setQuestions(stepQuestion);
