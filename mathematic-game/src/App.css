@@ -7,20 +7,15 @@
 }
 
 .first,.game,.result {
-  min-width: 100vw;
-  min-height: 100vh;
   background-color: #2d2d2d;
+  min-height: 100vh;
 }
 
 .correct{
   background-color: green;
-  min-width: 100vw;
-  min-height: 100vh;
 }
 .uncorrect{
   background-color: red;
-  min-width: 100vw;
-  min-height: 100vh;
 }
 
 .first-container{
@@ -76,31 +71,29 @@
 .game-container{
   display: flex;
   flex-direction: row;
-  padding-top: 98px;
-  justify-content: space-around;
+  padding-top: 63px;
+  justify-content: center;
 }
 
 .left-game{
-  font-size: 8rem;
+ padding-top: 27px;
 }
 
 .conc {
   position: absolute;
   top: 321px;
   left: 229px;
-
+  font-size: 8rem;
 }
 .score-container{
   display: flex;
   flex-direction: row;
-  margin: 10px auto 100px auto;
+  font-size: 3rem;
   
-
 }
 
 .game-score{
-  padding-right: 20px;
-  font-size: 4rem;
+  margin-right: 65px;
 }
 
 .circle{
@@ -112,14 +105,14 @@
 .circle-0{
   position: absolute;
   top: 319px;
-  right: 540px;
+  left: 1177px;
 
 }
 .circle span{
   position: absolute;
   right: 40px;
   top: 30px;
-  font-size: 5.5rem;
+  font-size: 90px;
 }
 .circle-1{
   position: absolute;
@@ -138,7 +131,7 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
-  padding: 4rem 15rem 0 15rem;
+  padding: 4rem  0 ;
   text-align: center;
 }
 
@@ -151,4 +144,10 @@
   padding-right: 0.5rem;
 }
 
+@media screen and (min-width:1024px) and (max-width:1919px) {
+
+  .left-game,right-game,.conc,.circle span,.circle{
+      transform: scale(0.53);
+    }
   
+}

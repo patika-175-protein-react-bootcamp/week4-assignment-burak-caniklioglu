@@ -12,12 +12,13 @@ import { useGame } from '../contexts/context';
 function ResultPage() {
 
   const {
-    allQuestions,
-    score,point,question,perCorrect
+    point,question,perCorrect
 
     }= useGame()
 
-    console.log(allQuestions)
+    const getAllQuestions = sessionStorage.getItem('allQuestions') ? JSON.parse(sessionStorage.getItem('allQuestions')) : [];
+
+
 
   return (
     <div className='result'>
@@ -35,26 +36,25 @@ function ResultPage() {
           <h1 className="header">All Questions</h1>
           <FirstUndeline className="underline" size={350}/>
           <div className="questions">
+
+            {getAllQuestions.map((item,index) => {
+              return(
             <div className="question">
-              <span>3</span>
-              <span>X</span>
-              <span>4</span>
-              <span>=</span>
-              <span>12</span>
-              <span className='symbol'>
-                <Tik/>
-              </span>
+                <span>{item.firstNumber}</span>
+                <span>X</span>
+                <span>{item.secondNumber}</span>
+                <span>=</span>
+                <span>{item.resultTrue}</span>
+                
+                <span className='symbol'>
+                  {item.isCorrect ? <Tik/> : <Wrong/>}
+                </span>
             </div>
-            <div className="question">
-              <span>3</span>
-              <span>X</span>
-              <span>4</span>
-              <span>=</span>
-              <span>12</span>
-              <span className='symbol'>
-                <Wrong/>
-              </span>
-            </div>
+              )
+            })}
+
+            
+            
             
           </div>
         </div>

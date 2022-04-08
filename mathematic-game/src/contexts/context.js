@@ -18,11 +18,12 @@ const GameProvider = ({children}) => {
   const [perCorrect, setPerCorrect] = useState([])
   const [allQuestions, setAllQuestions] = useState([]);
   const [color,setColor] = useState('#fff');
+  const [disabled, setDisabled] = useState(false)
   const navigate = useNavigate();
   
 
   const createQuestion = () => {
-    /* işlemler burada yapılacak */
+    
     const firstNumber = Math.ceil(Math.random() * 10);
     const secondNumber = Math.ceil(Math.random() * 10);
     const resultTrue = firstNumber * secondNumber;
@@ -82,6 +83,7 @@ const GameProvider = ({children}) => {
     setCorrect("game")
     setQuestions(stepQuestion);
     setClicked(false);
+    setDisabled(false);
     
   },[step])
 
@@ -125,7 +127,9 @@ const GameProvider = ({children}) => {
       point,
       tempCorrect,
       setTempCorrect,
-      perCorrect
+      perCorrect,
+      disabled,
+      setDisabled
           }}>
       {children}
     </GameContext.Provider>

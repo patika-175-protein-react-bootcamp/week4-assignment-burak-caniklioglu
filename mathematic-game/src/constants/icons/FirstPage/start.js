@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Start(props) {
-  console.log(props);
+  
   return (
       
     <svg width="447" height="139" viewBox="0 0 447 139" fill="none" xmlns="http://www.w3.org/2000/svg">

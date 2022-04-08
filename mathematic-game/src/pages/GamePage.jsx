@@ -21,15 +21,20 @@ function GamePage() {
     setClicked,
     setAllQuestions,
     tempCorrect,
-    setTempCorrect} = useGame()
+    setTempCorrect,
+    disabled,
+    setDisabled} = useGame()
   
-    console.log(allQuestions);
+    
+  
 
 
   const handleClick = (e,item) => {
+    setDisabled(true)
+
     
     item.active = true
-    console.log(item);
+    
     setClicked(true);
     if(Number(e.currentTarget.innerText) === questions.resultTrue){
       questions.isCorrect = true;
@@ -44,7 +49,7 @@ function GamePage() {
           setPoint(Number(score) + Math.floor(Math.sqrt(questions.resultTrue))+1);
         }
         
-      },1000)
+      },3000)
     }
 
     const checkedAnswer = Number(e.currentTarget.innerText) === questions.resultTrue ? "correct" : "uncorrect";
@@ -53,10 +58,10 @@ function GamePage() {
     setAllQuestions([...allQuestions,questions])
 
     setCorrect(checkedAnswer);
-    /* Soruyla ilgili işlemler 3 saniye geçmeden önce burada yapılacak. */
+    
     setTimeout(()=>{
       setStep((prevStep) => prevStep + 1);
-    },1000)
+    },3000)
   }
   
   
@@ -79,7 +84,7 @@ function GamePage() {
           </div>
           <div className="circles">
             {questions?.answers?.map((item, index) => (
-              <button className={`circle circle-${index}`} key = {index}onClick={(e) => handleClick(e,item) }>
+              <button className={`circle circle-${index}`} key = {index}onClick={(e) => handleClick(e,item) } disabled = {disabled}>
                 <SmallCircle item={item} clicked={clicked} questions={questions} />
                 
               </button>
