@@ -97,7 +97,7 @@ html{
 
 .game-score{
   display: flex;
-  margin-right: 1.5em;
+  margin-right: 1.3em;
   font-size: 3em;
   line-height: 64px;
 }
