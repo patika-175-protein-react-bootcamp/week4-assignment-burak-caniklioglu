@@ -18,14 +18,14 @@ function FirstPage() {
       <div className="first-container">
         <div className="wrapper">
           <p className="header">Mathematics Game</p>
-          <FirstUndeline className="underline"/>
+          <FirstUndeline   className='underline'/>
           <p className='first-parag'>Total Point : <span>{localStorage.getItem('score')|| 0}</span></p>
           <p className='first-parag'>Total Questions : <span>{getAllQuestions}</span></p>
           <p className='first-parag'>Correct Answers : <span>{getCorrectAnswer}</span></p>
           <div>
 
             <Link to="/game" className='first-link'>
-              <Start  /> <span className='start'>Start</span>
+              <Start  /> <p className='start'>Start</p>
             </Link>
           </div>
         </div>
