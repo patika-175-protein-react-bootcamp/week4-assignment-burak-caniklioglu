@@ -7,42 +7,36 @@ import { useGame } from '../contexts/context';
 
 function GameP() {
 
-    const {tour,
-    step,
-    setStep,
-    score,
-    setScore,
-    question,
-    questions,
-    correct,
-    setCorrect,
-    allQuestions,
-    setPoint,
-    clicked,
-    setClicked,
-    setAllQuestions,
-    tempCorrect,
-    setTempCorrect,
-    disabled,
-    setDisabled} = useGame()
+    const {tour, // tur sayısı
+    setStep, // her bir soru adımı
+    score, // gecici skor
+    setScore, // gecici skor setleme
+    questions, // gecici toplam soru sayısı
+    setCorrect, // arka planı kırmızı yeşil yapan fonksiyon
+    allQuestions, // tüm sorulmus sorular
+    setPoint, // gecici skoru sessiona kaydetmek ve gecici skoru da sıfırlamak icin kullandıgım fonksiyon
+    clicked, // tıklanılanı siyah diğerlerini de uygun renk yapma
+    setClicked, //// tıklanılanı siyah diğerlerini de uygun renk yapan fonksiyon
+    tempCorrect, // gecici doğru cevap
+    setTempCorrect, // gecici doğru cevap setleme
+    disabled,   // soruya tıklanıldığında disabled olması için
+    setDisabled // soruya tıklanıldığında disabled olması için fonksiyon
+    } = useGame()
   
     
   
 
 
   const handleClick = (e,item) => {
-    setDisabled(true)
-
-    
-    item.active = true
-    
-    setClicked(true);
+    setDisabled(true) // soruya tıklanıldığında disabled olması için
+    item.active = true // tıklananın renkini değiştirme
+    setClicked(true); // tıklanılanı siyah diğerlerini de uygun renk yapma
     if(Number(e.currentTarget.innerText) === questions.resultTrue){
       questions.isCorrect = true;
       
       setTempCorrect([...tempCorrect,questions])
       setTimeout(() => {
-        if(Number.isInteger(Math.sqrt(questions.resultTrue))){
+        if(Number.isInteger(Math.sqrt(questions.resultTrue))){ // karekökünün tam olup olmadığını kontrol ediyoruz
           setScore(Number(score) + Math.floor(Math.sqrt(questions.resultTrue)));
           setPoint(Number(score) + Math.floor(Math.sqrt(questions.resultTrue)));
         }else{
@@ -54,15 +48,12 @@ function GameP() {
     }
 
     const checkedAnswer = Number(e.currentTarget.innerText) === questions.resultTrue ? "correct" : "uncorrect";
-    
-
-    
-
+    // arkaplanın kırmızı yeşil olması için
     setCorrect(checkedAnswer);
     
     setTimeout(()=>{
       setStep((prevStep) => prevStep + 1);
-    },3000)
+    },3000) // 3 saniye sonra bir sonraki soruya geçmesini sağlıyoruz ayrıca contexte yazdığımız fonksiyonlar calısıyor
   }
   
   return (

@@ -3,10 +3,13 @@ import {Link} from 'react-router-dom';
 import Start from '../constants/icons/FirstPage/start';
 
 function FirstP() {
+    // dogru cevaplarımızı çağırıyoruz
     const getCorrectAnswer = JSON.parse(
         localStorage.getItem('Correct')
       ) ? JSON.parse(localStorage.getItem('Correct')).length : 0;
     
+
+      // gecmis soruları çağırıyoruz
       const getAllQuestions = JSON.parse(localStorage.getItem('allQuestions')) ? JSON.parse(localStorage.getItem('allQuestions')).length : 0;
   return (
     <div>

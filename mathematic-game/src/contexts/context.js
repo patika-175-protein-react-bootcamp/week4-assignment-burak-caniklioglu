@@ -1,34 +1,37 @@
 import React, { useContext,useState, useEffect } from 'react';
-import shuffle from "../utils/shuffleArray";
+import shuffle from "../utils/shuffleArray"; //karştırıcı fonksiyonu
 import { useNavigate } from 'react-router-dom';
 
 const GameContext = React.createContext();
 
 // eslint-disable-next-line react/prop-types
 const GameProvider = ({children}) => {
-  const [correct, setCorrect] = useState('game')
-  const [clicked, setClicked] = useState(false)
-  const [tour, setTour] = useState(1);
-  const [step, setStep] = useState(1);
-  const [score, setScore] = useState(0);
-  const [point,setPoint] = useState(0);
-  const [question, setQuestion] = useState(10);
-  const [questions, setQuestions] = useState({});
-  const [tempCorrect, setTempCorrect] = useState([]);
-  const [perCorrect, setPerCorrect] = useState([])
-  const [allQuestions, setAllQuestions] = useState([]);
-  const [color,setColor] = useState('#fff');
+  const [correct, setCorrect] = useState('game') //başlangıcta siyah arkaplan classı
+  const [clicked, setClicked] = useState(false)   //soruya tıklanıp tıklanmadığını kontrol eder
+  const [tour, setTour] = useState(1);  //tur sayısı
+  const [step, setStep] = useState(1);  //her bir soruya geçtiği zaman 1 artar
+  const [score, setScore] = useState(0); //score
+  const [point,setPoint] = useState(0);   // gecici score
+  const [question, setQuestion] = useState(10); //turdaki soru sayısı
+  const [questions, setQuestions] = useState({}); // oluşturulan soru objesi
+  const [tempCorrect, setTempCorrect] = useState([]); //geçici doğru cevapları tutar
+  const [perCorrect, setPerCorrect] = useState([]) //kalıcı doğru cevapları tutar
+  const [allQuestions, setAllQuestions] = useState([]); //tüm soruları tutar
   const [disabled, setDisabled] = useState(false)
   const navigate = useNavigate();
   
 
-  const createQuestion = () => {
+  const createQuestion = () => { //soru objesi oluşturur
     
     const firstNumber = Math.ceil(Math.random() * 10);
     const secondNumber = Math.ceil(Math.random() * 10);
     const resultTrue = firstNumber * secondNumber;
     const resultTwo = firstNumber * (secondNumber === 1 ? secondNumber+1 : secondNumber - 1);
     const resultThree = (firstNumber+1) * secondNumber;
+    if(resultTwo === resultThree){
+      createQuestion()
+      
+    }
     const answers = shuffle([
         {result:resultTrue, answer:true, active: false},
         {result: resultTwo , answer: false, active:false},
@@ -60,7 +63,7 @@ const GameProvider = ({children}) => {
     if(step > question){
       let getPoint = sessionStorage.getItem('point');
       let getLocal = localStorage.getItem('score') || 0;
-      getLocal = Number(getLocal) + Number(getPoint);
+      getLocal = Number(getLocal) + Number(getPoint);  
       localStorage.setItem("score", getLocal);
 
       let getLocalCorrect = localStorage.getItem('Correct') 
@@ -118,8 +121,6 @@ const GameProvider = ({children}) => {
       setCorrect,
       score,
       setScore,
-      color,
-      setColor,
       allQuestions,
       setAllQuestions,
       clicked,

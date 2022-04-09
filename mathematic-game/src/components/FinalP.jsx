@@ -8,11 +8,12 @@ import Wrong from '../constants/icons/ResulPage/Wrong';
 import { useGame } from '../contexts/context';
 
 function FinalP() {
-    const {
+    const { // contextten gecici skoru, soru sayısını ve gecici doğru cevaplarımızı çağırıyoruz
         point,question,perCorrect
     
         }= useGame()
     
+        // gecmis soruları çağırıyoruz
         const getAllQuestions = sessionStorage.getItem('allQuestions') ? JSON.parse(sessionStorage.getItem('allQuestions')) : [];
     
   return (
@@ -33,7 +34,7 @@ function FinalP() {
 
             {getAllQuestions.map((item,index) => {
               return(
-            <div className="question">
+            <div className="question" key={index}>
                 <span>{item.firstNumber}</span>
                 <span>X</span>
                 <span>{item.secondNumber}</span>
