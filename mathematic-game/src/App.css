@@ -97,7 +97,7 @@ html{
 
 .game-score{
   display: flex;
-  margin-right: 3em;
+  margin-right: 1.5em;
   font-size: 3em;
   line-height: 64px;
 }
@@ -238,16 +238,21 @@ html{
 
 
 @media screen and (min-width: 1281px) and (max-width: 1400px) {
-  
+
   html{
     font-size: 14px;
   }
   .left-game{
     margin-left: 10em;
+   padding-top: 1.2em;
   }
   .Student svg{
     width: 43em ;
     height: 43em;
+  }
+  .score-container{
+    display: flex;
+    padding-left: 4.5em;
   }
   .conc {
     top: 230px;
@@ -255,14 +260,9 @@ html{
     font-size: 6em;
   }
 
-  .score-container{
-    display: flex;
-    padding-left: 6em;
-  }
-
   .game-score{
     margin-right: 1.5em;
-    font-size: 3em;
+    font-size: 2.1em;
   }
 
   .SmallCircle svg{
@@ -271,23 +271,25 @@ html{
   }
   .circle-0{
     top: 219px;
-    left: 900px;
+    left: 800px;
   
   }
   .circle-1{
     top: 352px;
-    left:1200px;
+    left:1100px;
   
   }
   .circle-2{
     top: 500px;
-    left:985px;
+    left:900px;
   }
 
   .circle span{
     top: 20px;
     font-size: 60px;
   } 
+  
+  
   
 }
 
