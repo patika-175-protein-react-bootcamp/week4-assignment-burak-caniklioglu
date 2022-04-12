@@ -1,0 +1,324 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Handlee", cursive;
+  color: white;
+}
+
+html{
+  font-size: 16px;
+}
+
+
+
+.first,.game,.result {
+  background-color: #2d2d2d;
+  min-height: 100vh;
+}
+
+.correct{
+  background-color: #00BF63;
+  min-height: 100vh;
+}
+.uncorrect{
+  background-color: #FA0000;
+  min-height: 100vh;
+}
+
+
+
+.first-container{
+  width: 50em;
+  padding-top: 9em;
+  margin: 0 auto;
+}
+.wrapper{
+  width: 45em;
+  margin: 0 auto;
+  text-align: center;
+}
+ 
+
+.header {
+  width: 8em;
+  height: 1.33em;
+  font-size: 5.125em;
+  color: #ff0000;
+  margin: auto;
+  text-align: center;
+}
+
+
+.first-parag{
+  margin: 0.75em;
+  font-size: 4rem;
+}
+
+.first-link{
+  position: relative;
+}
+
+
+
+.start{
+  position: absolute;
+  font-size: 4em;
+  inset: 0;
+  top: -1.5em;
+}
+
+
+/**/
+
+
+
+
+.game-container{
+  display: flex;
+  padding-top: 4em;
+}
+
+.left-game{
+  margin-left: 11em;
+ padding-top: 1.5em;
+}
+
+
+.conc {
+  position: absolute;
+  top: 321px;
+  left: 279px;
+  font-size: 8em;
+}
+.score-container{
+  display: flex;
+}
+
+.game-score{
+  display: flex;
+  margin-right: 1.3em;
+  font-size: 3em;
+  line-height: 64px;
+}
+
+.circle{
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.circle-0{
+  position: absolute;
+  top: 319px;
+  left: 1227px;
+
+}
+.circle-1{
+  position: absolute;
+  top: 452px;
+  left:1617px;
+
+}
+.circle-2{
+  position: absolute;
+  top: 611px;
+  left:1336px;
+  
+
+}
+.circle span{
+  position: absolute;
+  inset: 0;
+  top: 30px;
+  font-size: 90px;
+}
+
+
+@media screen and (min-width: 1023px) and (max-width: 1200px) {
+  
+  html{
+    font-size: 12.8px;
+  }
+  .left-game{
+    margin-left: 6em;
+   padding-top: 1.5em;
+  }
+  .Student svg{
+    width: 40em ;
+    height: 40em;
+  }
+
+  .conc {
+    top: 200px;
+    left: 140px;
+    font-size: 6em;
+  }
+
+  .game-score{
+    margin-right: 1.5em;
+    font-size: 2.1em;
+  }
+
+  .SmallCircle svg{
+    width: 9em;
+    height: 8.3em;
+  }
+  .circle-0{
+    top: 219px;
+    left: 650px;
+  
+  }
+  .circle-1{
+    top: 352px;
+    left:850px;
+  
+  }
+  .circle-2{
+    top: 500px;
+    left:725px;
+  }
+
+  .circle span{
+    top: 25px;
+    font-size: 50px;
+  } 
+}
+
+@media screen and (min-width: 1201px) and (max-width: 1280px) {
+  
+  html{
+    font-size: 13.5px;
+  }
+  .left-game{
+    margin-left: 8em;
+   padding-top: 1.2em;
+  }
+  .Student svg{
+    width: 42em ;
+    height: 42em;
+  }
+  .conc {
+    top: 230px;
+    left: 190px;
+    font-size: 6em;
+  }
+
+  .game-score{
+    margin-right: 1.5em;
+    font-size: 2.1em;
+  }
+
+  .SmallCircle svg{
+    width: 9.5em;
+    height: 8.3em;
+  }
+  .circle-0{
+    top: 219px;
+    left: 750px;
+  
+  }
+  .circle-1{
+    top: 352px;
+    left:950px;
+  
+  }
+  .circle-2{
+    top: 500px;
+    left:805px;
+  }
+
+  .circle span{
+    top: 20px;
+    font-size: 60px;
+  } 
+  
+}
+
+
+
+@media screen and (min-width: 1281px) and (max-width: 1400px) {
+
+  html{
+    font-size: 14px;
+  }
+  .left-game{
+    margin-left: 10em;
+   padding-top: 1.2em;
+  }
+  .Student svg{
+    width: 43em ;
+    height: 43em;
+  }
+  .score-container{
+    display: flex;
+    padding-left: 4.5em;
+  }
+  .conc {
+    top: 230px;
+    left: 190px;
+    font-size: 6em;
+  }
+
+  .game-score{
+    margin-right: 1.5em;
+    font-size: 2.1em;
+  }
+
+  .SmallCircle svg{
+    width: 9.5em;
+    height: 8.3em;
+  }
+  .circle-0{
+    top: 219px;
+    left: 800px;
+  
+  }
+  .circle-1{
+    top: 352px;
+    left:1100px;
+  
+  }
+  .circle-2{
+    top: 500px;
+    left:900px;
+  }
+
+  .circle span{
+    top: 20px;
+    font-size: 60px;
+  } 
+  
+  
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.result-container{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 4rem  0 ;
+  text-align: center;
+}
+
+.symbol{
+  
+  padding-left: 3rem;
+}
+.question span{
+  font-size: 3.5rem;
+  padding-right: 0.5rem;
+}
+
+
